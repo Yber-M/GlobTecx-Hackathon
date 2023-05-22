@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<!-- * CABEZA -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./img/logoFondo.png">
+    <title>Inicio</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+
+    <!-- * ENCABEZADO -->
+    <header>
+        <h2 class="logo">
+            <a href="index.html">
+                <img src="./img/logoFondoRedondo.png" alt="logoTienda">
+            </a>
+        </h2>
+
+        <p class="text-logo">
+            <strong>
+                GlobTecx-
+            </strong>
+        </p>
+        <nav class="navigation">
+            <a href="./cliente/catalogo.html">Sóbre Nosotros</a>
+            <a href=" ./cliente/formulario.html">Chat Tecx-Bot</a>
+            <a href="./cliente/condiciones.html">Términos y Condiciones</a>
+            <button class="btnLogin-popup">Iniciar Sesión</button>
+        </nav>
+    </header>
+
+    <!-- * FORMULARIO -->
+    <div class="evolutara">
+
+        <span class="icon-close">
+            <ion-icon name="close-outline"></ion-icon>
+        </span>
+
+        <div class="form-box login">
+            <h2>GlobTecx-</h2>
+            <form action="#">
+
+                <!-- ? Email -->
+                <div class="input-box">
+                    <span class="icon">
+                        <!-- ? Icono de 'Ionicons' -->
+                        <ion-icon name="mail"></ion-icon>
+                    </span>
+                    <input id="input-correo" type="email" required>
+                    <label>Correo</label>
+                </div>
+
+                <!-- ? Password -->
+                <div class="input-box">
+                    <span class="icon">
+                        <!-- ? Icono de 'Ionicons' -->
+                        <ion-icon name="lock-closed"></ion-icon>
+                    </span>
+                    <input id="input-pass" type="password" required>
+                    <label>Contraseña</label>
+                    <a href="../catalogoFinalGlobTecx/admin/index.html"></a>
+                </div>
+
+                <!-- ? Recordarme y Se Olvidó su Contraseña? -->
+                <div class="text-recuerdame">
+                    <label>
+                        <input type="checkbox" name="recordarPass">
+                        Recordarme
+                    </label>
+                    <a href="#">¿Olvidó su contraseña?</a>
+                </div>
+
+                <!-- ? Submit para validar datos ingresados -->
+                <button type="button" class="btn" onclick="validate()">
+                    <a style="text-decoration: none; color: #432c39;">
+                        Iniciar Sesión
+                    </a>
+                </button>
+
+                <div class="inicio-registrar">
+                    <p> ¿Aún no tienes un cuenta?
+                        <a href="#" class="entrar-registrar">Registrate</a>
+                    </p>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <!-- * JS -->
+    <script src="./script.js"></script>
+
+    <!-- * ICONOS 'Ionicons 5.5.2' -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+
+</body>
+
+</html>
