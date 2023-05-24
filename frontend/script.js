@@ -1,20 +1,21 @@
 // * Abrir y Cerrar Los Formularios Login y Register
-const evolutara = document.querySelector('.evolutara');
-const linkLogin = document.querySelector('.entrar-login');
-const btnPopup = document.querySelector('.btnLogin-popup');
-const iconClose = document.querySelector('.icon-close');
+const evolutara = document.querySelector('.evolutara')
 
-btnPopup.addEventListener('click', () => {
+// * Constante Abrir Login con el btn Inciar Sesion
+const btnOpen = document.querySelector('.btnLogin-popup')
+
+// * Constante Cerrar Login con el btn X
+const iconClose = document.querySelector('.icon-close')
+
+// ? Evento Abrir Login con el btn Inciar Sesion
+btnOpen.addEventListener('click', () => {
     evolutara.classList.add('active-popup');
-});
-
-linkLogin.addEventListener('click', () => {
-    evolutara.classList.remove('active');
 });
 
 iconClose.addEventListener('click', () => {
     evolutara.classList.remove('active-popup');
 });
+
 
 // * Validar User y Contraseña
 function validate() {
