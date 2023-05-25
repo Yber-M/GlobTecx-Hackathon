@@ -2,6 +2,7 @@ const { Router } = require("express");
 const UserController = require("../controller/UserController");
 const { check, body } = require("express-validator");
 const { validate_validations } = require("../middlewares/validate_validations");
+const { verify_user } = require("../middlewares/exists_user");
 
 class UserRoute {
   constructor() {
@@ -21,6 +22,7 @@ class UserRoute {
           .isMongoId()
           .withMessage("El 'id' ingresado no corresponde a un 'mongo id'"),
         validate_validations,
+        verify_user,
       ],
       this.user_ctrl.get_user
     );
@@ -43,6 +45,7 @@ class UserRoute {
           .isMongoId()
           .withMessage("El 'id' ingresado no corresponde a un 'mongo id'"),
         validate_validations,
+        verify_user,
       ],
       this.user_ctrl.remove_user
     );
@@ -54,12 +57,12 @@ class UserRoute {
         check("id")
           .isMongoId()
           .withMessage("El 'id' ingresado no corresponde a un 'mongo id'"),
-
         body("email")
           .optional()
           .isEmail()
           .withMessage("El email ingresado es incorrecto, Verifiquelo"),
         validate_validations,
+        verify_user,
       ],
       this.user_ctrl.update_user
     );

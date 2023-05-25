@@ -2,53 +2,38 @@ const { request, response } = require("express");
 const File = require("../model/FileSchema");
 const User = require("../model/UserSchema");
 const FileDTO = require("../dtos/FileDTO");
+const Response = require("../model/Response");
 
 class FileService {
   // GETS
-
   async get_files(req = request, res = response) {
     try {
       let files = await File.find();
-      res.json({ msg: "Files", body: files });
+      new Response(res).reply("Archivos", files);
     } catch (err) {
-      res.json({
-        msg: "Error",
-        body: "Ocurrio un error al obtener los archivos",
-      });
+      new Response(res).reply(
+        "Error",
+        "Ocurrio un error al obtener los archivos"
+      );
     }
   }
 
   async get_user_files(req = request, res = response) {
     try {
-      let { id } = req.params;
-
-      let user = await User.findOne({ _id: id });
-      if (!user)
-        return res.json({
-          msg: "No Encontrado",
-          body: "El usuario no encontro",
-        });
-
-      res.json({ msg: "Archivos", body: user.list_files });
+      let user = req.user;
+      new Response(res, "Archivos", user.list_files).reply();
     } catch (err) {
-      res.json({
-        msg: "Error",
-        body: "Ocurrio un error al obtener los archivos",
-      });
+      new Response(res).reply(
+        "Error",
+        "Ocurrio un error al obtener los archivos"
+      );
     }
   }
 
   // POSTS
   async upload_file(req = request, res = response) {
     try {
-      let { id } = req.params;
-
-      let user = await User.findOne({ _id: id });
-      if (!user)
-        return res.json({
-          msg: "No Encontrado",
-          body: "El usuario no se encontro",
-        });
+      let user = req.user;
 
       if (req.file) {
         const file = req.file;
@@ -63,8 +48,8 @@ class FileService {
 
         let start = Date.now();
         await Promise.all([
-          await file_to_upload.save(),
-          await user.updateOne({
+          file_to_upload.save(),
+          user.updateOne({
             $push: { list_files: file_to_upload["_id"] },
           }),
         ]);
@@ -80,54 +65,56 @@ class FileService {
           `,
         });
       } else {
-        return res.json({
-          msg: "Archivo Incorrecto",
-          body: "El archivo seleccionado es incorrecto, no es un PDF",
-        });
+        return new Response(res).reply(
+          "Archivo Incorrecto",
+          "El archivo seleccinoado es incorrecto, no es un PDF"
+        );
       }
     } catch (err) {
-      res.json({
-        msg: "Error",
-        body: "Ocurrio un error al intentar subir el archivo",
-      });
+      return new Response(res).reply(
+        "Error",
+        "Ocurrio un error al intentar subir el archivo"
+      );
     }
   }
 
+  // DELETEDS
   async remove_file(req = request, res = response) {
     try {
-      let { user_id, file_id } = req.body;
-
-      let user = await User.findOne({ _id: user_id });
+      let { file_id } = req.body;
+      let user = req.user;
 
       if (!user)
-        return res.json({
-          msg: "No Encontrado",
-          body: "No se encontro el usuario",
-        });
+        return new Response(res).reply(
+          "No Encontrado",
+          "No se encontro el usuario"
+        );
+
       let file = await File.findOne({ _id: file_id });
 
       if (!file)
-        return res.json({
-          msg: "No Encontrado",
-          body: "No se encontro el archivo",
-        });
+        return new Response(res).reply(
+          "No Encontrado",
+          "No se encontro el archivo"
+        );
 
       await Promise.all([
         user.updateOne({ $pull: { list_files: file_id } }),
         file.deleteOne(),
       ]);
-      res.json({
-        msg: "Eliminado Correctamente",
-        body: "El archivo se elimino correctamente",
-      });
+      new Response(res).reply(
+        "Eliminado correctamente",
+        "El archivo se elimino correctamente"
+      );
     } catch (err) {
-      res.json({
-        msg: "Error",
-        body: "Ocurrio un error al intentar eliminar el archivo",
-      });
+      new Response(res).reply(
+        "Error",
+        "Ocurrio un error al intentar eliminar el archivo"
+      );
     }
   }
 
+  // VALIDATES
   validate_file(data) {
     let file = FileDTO.validate(data);
     if (file.error) return file.error.details[0];
