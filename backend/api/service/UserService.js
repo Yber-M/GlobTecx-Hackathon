@@ -1,7 +1,6 @@
 const UserDTO = require("../dtos/UserDTO");
 const User = require("../model/UserSchema");
 const Account = require("../model/AccountSchema");
-const File = require("../model/FileSchema");
 const { request, response } = require("express");
 
 class UserService {

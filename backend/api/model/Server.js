@@ -1,8 +1,9 @@
 const express = require("express");
-const file_upload = require("express-fileupload");
+const compression = require("compression");
 
 const user_route = require("../routes/UserRoute");
 const file_route = require("../routes/FileRoute");
+const path = require("path");
 
 class Server {
   constructor() {
@@ -12,15 +13,19 @@ class Server {
   }
 
   config() {
-    this.app.use(file_upload());
     this.app.use(express.json());
     this.app.use(express.urlencoded({ extended: false }));
+    this.app.use(compression());
   }
 
   routes() {
     // USERS
     this.app.use("/users", user_route);
     this.app.use("/files", file_route);
+    this.app.use(
+      "/public",
+      express.static(path.join(__dirname, "../../../frontend"))
+    );
   }
 
   start() {
@@ -29,5 +34,4 @@ class Server {
     });
   }
 }
-
 module.exports = new Server();

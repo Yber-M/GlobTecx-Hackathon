@@ -1,11 +1,44 @@
 const { request, response } = require("express");
 const File = require("../model/FileSchema");
-const fs = require("fs");
 const User = require("../model/UserSchema");
-const path = require("path");
 const FileDTO = require("../dtos/FileDTO");
 
 class FileService {
+  // GETS
+
+  async get_files(req = request, res = response) {
+    try {
+      let files = await File.find();
+      res.json({ msg: "Files", body: files });
+    } catch (err) {
+      res.json({
+        msg: "Error",
+        body: "Ocurrio un error al obtener los archivos",
+      });
+    }
+  }
+
+  async get_user_files(req = request, res = response) {
+    try {
+      let { id } = req.params;
+
+      let user = await User.findOne({ _id: id });
+      if (!user)
+        return res.json({
+          msg: "No Encontrado",
+          body: "El usuario no encontro",
+        });
+
+      res.json({ msg: "Archivos", body: user.list_files });
+    } catch (err) {
+      res.json({
+        msg: "Error",
+        body: "Ocurrio un error al obtener los archivos",
+      });
+    }
+  }
+
+  // POSTS
   async upload_file(req = request, res = response) {
     try {
       let { id } = req.params;
@@ -17,50 +50,40 @@ class FileService {
           body: "El usuario no se encontro",
         });
 
-      if (req.files && req.files.file) {
-        const file = req.files.file;
-        const ext = path.extname(file.name);
-        if (ext === ".pdf") {
-          let upload_path = path.join(__dirname, "../upload_files/");
+      if (req.file) {
+        const file = req.file;
+        let file_dto = this.validate_file(req.body);
+        if (file_dto.message) return res.json({ msg: file_dto.message });
 
-          if (!fs.existsSync(upload_path)) fs.mkdirSync(upload_path);
-          let new_file_name = `${Date.now()}-${file.name}`;
-          upload_path += new_file_name;
+        let file_to_upload = new File({
+          title: file_dto.title,
+          file: file.originalname,
+          path: file.path,
+        });
 
-          file.mv(upload_path, async (err) => {
-            if (err)
-              return res.json({
-                msg: "Error de Guardado",
-                body: `El archvio no se pudo subir correctamente: ${err}`,
-              });
+        let start = Date.now();
+        await Promise.all([
+          await file_to_upload.save(),
+          await user.updateOne({
+            $push: { list_files: file_to_upload["_id"] },
+          }),
+        ]);
+        let end = Date.now();
+        const durationMillis = end - start;
+        const durationMicros = durationMillis * 1000;
+        const durationSeconds = durationMillis / 1000;
 
-            let file_dto = this.validate_file(req.body);
-            if (file_dto.message) return res.json({ msg: file_dto.message });
-
-            let file_to_upload = new File({
-              title: file_dto.title,
-              file: new_file_name,
-              path: upload_path,
-            });
-
-            await Promise.all([
-              await file_to_upload.save(),
-              await user.updateOne({
-                $push: { list_files: file_to_upload["_id"] },
-              }),
-            ]);
-
-            res.json({
-              msg: "Archivo Subido",
-              body: "El archivo se subio correctamente",
-            });
-          });
-        } else {
-          return res.json({
-            msg: "Archivo Incorrecto",
-            body: "El archivo seleccionado es incorrecto, no es un PDF",
-          });
-        }
+        res.json({
+          msg: "Archivo Subido",
+          body: "El archivo se subio correctamente",
+          response_time: `milisegundos: ${durationMillis} - microsegundos: ${durationMicros} - segundos: ${durationSeconds}
+          `,
+        });
+      } else {
+        return res.json({
+          msg: "Archivo Incorrecto",
+          body: "El archivo seleccionado es incorrecto, no es un PDF",
+        });
       }
     } catch (err) {
       res.json({

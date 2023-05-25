@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UPLOAD FILE</title>
+  </head>
+  <body>
+    <form
+      action="/files/646cf6e8bff92dd3aba04bda"
+      method="post"
+      enctype="multipart/form-data"
+    >
+      <input type="file" name="file" id="file" />
+      <input type="submit" value="Subir archivo" />
+    </form>
+
+    <div id="respuesta"></div>
+
+    <script>
+      const form = document.querySelector("form");
+      const respuestaDiv = document.getElementById("respuesta");
+
+      form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+
+        const formData = new FormData(form);
+        formData.append("title", "test1");
+
+        try {
+          const response = await fetch("/files/646eb934e5b5702cf11e4280", {
+            method: "POST",
+            body: formData,
+          });
+
+          const responseData = await response.text();
+          let resp_json = JSON.parse(responseData);
+          respuestaDiv.innerHTML += `<p>${resp_json["msg"]}</p>`;
+          respuestaDiv.innerHTML += `<p>${resp_json["body"]}</p>`;
+          respuestaDiv.innerHTML += `<p>${resp_json["response_time"]}</p>`;
+        } catch (error) {
+          console.error("Error:", error);
+        }
+      });
+    </script>
+  </body>
+</html>
