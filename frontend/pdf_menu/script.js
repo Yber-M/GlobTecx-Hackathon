@@ -9,7 +9,7 @@ pdfFileInput.addEventListener("change", async function (event) {
   const file = event.target.files[0];
 
   // Enviar el pdf a la base de datos
-  let response = await axios.get("http://localhost:3000/files/");
+  // let response = await axios.get("http://localhost:3000/files/");
 
   const fileURL = URL.createObjectURL(file);
 
