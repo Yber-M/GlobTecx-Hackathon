@@ -1,4 +1,4 @@
-# Repositorio Creado para la Hackaton   
+# Proyecto TECx-BOT IA (Hackathon)
 
 
 
