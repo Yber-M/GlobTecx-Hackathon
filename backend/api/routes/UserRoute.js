@@ -27,6 +27,15 @@ class UserRoute {
       this.user_ctrl.get_user
     );
 
+    this.router.get(
+      "/search/:username",
+      [
+        check("username").notEmpty().withMessage("Ingrese un usuario"),
+        validate_validations,
+      ],
+      this.user_ctrl.get_user_by_username
+    );
+
     // POSTS
     this.router.post(
       "/",

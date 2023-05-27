@@ -7,6 +7,7 @@ const user_schema = new Schema(
     age: { type: Number },
     role: { type: String },
     career: { type: String },
+    username: { type: String },
     account: { type: Schema.Types.ObjectId, ref: "Account" },
     list_files: { type: [Schema.Types.ObjectId], ref: "File", default: [] },
   },

@@ -11,6 +11,10 @@ class UserController {
     return user_service.get_user(req, res);
   }
 
+  get_user_by_username(req = request, res = response) {
+    return user_service.get_user_by_username(req, res);
+  }
+
   create_user(req = request, res = response) {
     return user_service.create_user(req, res);
   }

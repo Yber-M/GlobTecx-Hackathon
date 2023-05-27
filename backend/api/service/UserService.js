@@ -24,10 +24,33 @@ class UserService {
     }
   }
 
+  async get_user_by_username(req = request, res = response) {
+    try {
+      let { username } = req.params;
+      let user = await User.findOne({ username: username }).populate({
+        path: "account",
+        options: { strictPopulate: false },
+      });
+
+      if (!user)
+        return res.json({
+          msg: "No Encontrado",
+          body: "El usuario no existe",
+          status: 404,
+        });
+
+      new Response(res).reply("Usuario", user);
+    } catch (err) {
+      console.log(err);
+      new Response(res).reply("Error", "No se pudo obtener el usuario");
+    }
+  }
+
   // POSTS
   async create_user(req = request, res = response) {
     try {
       const user = UserDTO.validate(req.body);
+      user.value.username = user.value.username.toLowerCase();
 
       if (user.error)
         return res.json({
