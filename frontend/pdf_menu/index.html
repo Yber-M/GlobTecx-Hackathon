@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Visor de PDF con Chat</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div id="container">
+      <div id="chat">
+        <h2>Chat</h2>
+        <div id="messages"></div>
+        <input
+          type="text"
+          id="input-message"
+          placeholder="Escribe un mensaje"
+        />
+      </div>
+      <div id="pdf-viewer">
+        <h2 id="jojo">Visor de PDF</h2>
+        <input type="file" id="pdf-file" accept="application/pdf" />
+        <embed id="pdf-embed" src="" type="application/pdf" />
+      </div>
+    </div>
+
+    <script>
+      // Obtener referencias a los elementos HTML
+      const pdfFileInput = document.getElementById("pdf-file");
+      const pdfEmbed = document.getElementById("pdf-embed");
+      const messagesContainer = document.getElementById("messages");
+      const inputMessage = document.getElementById("input-message");
+
+      // Manejar la carga de un archivo PDF
+      pdfFileInput.addEventListener("change", function (event) {
+        const file = event.target.files[0];
+        const fileURL = URL.createObjectURL(file);
+        pdfEmbed.setAttribute("src", fileURL);
+      });
+
+      // Manejar el envío de un mensaje
+      inputMessage.addEventListener("keydown", function (event) {
+        if (event.key === "Enter") {
+          const message = inputMessage.value;
+          if (message.trim() !== "") {
+            addMessage("Tú", message);
+            inputMessage.value = "";
+          }
+        }
+      });
+
+      // Función para agregar un mensaje al chat
+      function addMessage(author, text) {
+        const messageElement = document.createElement("div");
+        messageElement.innerHTML = `<strong>${author}:</strong> ${text}`;
+        messagesContainer.appendChild(messageElement);
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+      }
+    </script>
+  </body>
+</html>
