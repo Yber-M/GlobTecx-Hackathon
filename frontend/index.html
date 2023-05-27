@@ -17,7 +17,7 @@
     <!-- * ENCABEZADO -->
     <header>
         <h2 class="logo">
-            <img src="./img/logoFondoRedondo.png" alt="logoGLOBTECx-">
+            <img src="./img/logoFondoRedondo.png" alt="logoTienda">
         </h2>
 
         <p class="text-logo">
@@ -27,7 +27,7 @@
         </p>
         <nav class="navigation">
             <a href="./cliente/catalogo.html">Sobre Nosotros</a>
-            <a href=" ./cliente/formulario.html">TECx-Bot v1.0 </a>
+            <a href=" ./cliente/formulario.html">TECx-BOT v1.0</a>
             <a href="./cliente/condiciones.html">Términos y Condiciones</a>
             <button class="btnLogin-popup">Iniciar Sesión</button>
         </nav>
@@ -51,7 +51,7 @@
                         <ion-icon name="mail"></ion-icon>
                     </span>
                     <input id="input-correo" type="email" required>
-                    <label>Correo</label>
+                    <label>Correo UCV</label>
                 </div>
 
                 <!-- ? Password -->
@@ -71,7 +71,6 @@
                         <input type="checkbox" name="recordarPass">
                         Recordarme
                     </label>
-                    <a href="#">¿Olvidó su contraseña?</a>
                 </div>
 
                 <!-- ? Submit para validar datos ingresados -->
@@ -81,9 +80,52 @@
                     </a>
                 </button>
 
+                <div class="inicio-registrar">
+                    <p>
+                        <a href="#" class="entrar-registrar">¿Olvidaste tu contraseña?</a>
+                    </p>
+                </div>
+
             </form>
         </div>
 
+        <!-- * REGISTRAR USUARIO -->
+        <div class="form-box register">
+
+            <h3>Restablecer Contraseña</h3>
+            <form action="#">
+
+                <!-- ? Nombres -->
+                <div class="input-box">
+                    <span class="icon">
+
+                        <!-- ? Icono de 'Ionicons' -->
+                        <ion-icon name="person"></ion-icon>
+                    </span>
+                    <input type="text" required>
+                    <label>Ingrese su usuario</label>
+                </div>
+                <!-- ? Email -->
+                <div class="input-box">
+                    <span class="icon">
+                        <!-- ? Icono de 'Ionicons' -->
+                        <ion-icon name="mail"></ion-icon>
+                    </span>
+                    <input type="email" required>
+                    <label>Ingrese su correo de recuperación <br> <span>(El correo no debe ser de la UCV)<span> </label>
+                </div>
+
+                <!-- ? Submit para validar datos ingresados -->
+                <button type="submit" class="btn">Siguiente</button>
+
+                <div class="inicio-registrar">
+                    <p> ¿Ya tienes una cuenta?
+                        <a href="#" class="entrar-login">Iniciar Sesión</a>
+                    </p>
+                </div>
+
+            </form>
+        </div>
     </div>
 
     <!-- * JS -->

@@ -6,8 +6,6 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
-
-    user-select: none;
 }
 
 body {
@@ -26,6 +24,7 @@ header {
     left: 0;
     width: 100%;
     padding: 0px 100px;
+    margin-top: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -36,7 +35,7 @@ header {
 
 /* ? Logo Img */
 .logo img {
-    height: 60px;
+    height: 48px;
     margin-top: 5px;
     margin-bottom: -5px;
 }
@@ -45,8 +44,8 @@ header {
 .text-logo {
     font-family: 'mononoki', monospace, 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 24px;
-    color: rgb(122, 255, 166);
-    margin-left: -20%;
+    color: #36f174;
+    margin-left: -60px;
 }
 
 /* ? Parte de los demás servicios */
@@ -75,7 +74,7 @@ header {
 
 /* ? Saldrá una linea debajo del texto de los demás servicios */
 .navigation a:hover::after {
-    transform: scaleX(1.1);
+    transform: scaleX(1);
 }
 
 /* ? Botón Superior De Iniciar Sesión */
@@ -106,8 +105,8 @@ header {
 /* ? Borde y efecto blur del LOGIN */
 .evolutara {
     position: relative;
-    width: 450px;
-    height: 440px;
+    width: 400px;
+    height: 450px;
     background: transparent;
     border: 2px solid rgba(255, 255, 255, 0.226);
     border-radius: 20px;
@@ -127,13 +126,8 @@ header {
 
 .evolutara.active {
     margin-top: 40px;
-    height: 550px;
-}
-
-/* ? Alineando Items */
-.evolutara .form-box {
-    width: 100%;
-    padding: 40px;
+    height: 450px;
+    width: 440px;
 }
 
 /* ? Icono Para Cerrar el LOGIN */
@@ -141,17 +135,23 @@ header {
     position: absolute;
     top: 0;
     right: 0;
-    width: 45px;
-    height: 45px;
+    width: 32px;
+    height: 32px;
     background: #36f174;
-    font-size: 2em;
+    font-size: 1.7em;
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-bottom-left-radius: 20px;
+    border-bottom-left-radius: 15px;
     cursor: pointer;
     z-index: 1;
+}
+
+/* ? Alineando Items */
+.evolutara .form-box {
+    width: 100%;
+    padding: 40px;
 }
 
 /* ? Entrar Login */
@@ -161,11 +161,24 @@ header {
 }
 
 /* ? Salir Login */
-/* .evolutara.active .form-box.login {
+.evolutara.active .form-box.login {
     transition: none;
     transform: translate(-400px);
 }
- */
+
+/* ? Entrar Register */
+.evolutara .form-box.register {
+    position: absolute;
+    transition: none;
+    transform: translate(400px);
+}
+
+/* ? Salir Restablecer */
+.evolutara.active .form-box.register {
+    transition: transform .18s ease;
+    transform: translateX(0);
+}
+
 /* ? Texto del Login */
 .form-box h2 {
     font-size: 2.5em;
@@ -177,8 +190,8 @@ header {
 .form-box h3 {
     font-size: 2.5em;
     font-family: 'mononoki', monospace, 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    color: #7affa6;
-    text-align: center; 
+    color: #36f174;
+    text-align: center;
 }
 
 /* * INPUTS */
@@ -188,7 +201,7 @@ header {
     width: 100%;
     height: 50px;
     border-bottom: 2px solid white;
-    margin: 30px 0;
+    margin: 40px 0;
 }
 
 /* ? Texto de los INPUTS */
@@ -264,7 +277,7 @@ header {
 
 /* ? Texto de OLVIDO CONTRASEÑA */
 .text-recuerdame a {
-    color: #7affa6;
+    color: #36f174;
     font-size: 15px;
     font-family: 'mononoki', monospace, 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     text-decoration: none;
@@ -286,6 +299,34 @@ header {
     border-radius: 6px;
     cursor: pointer;
     font-size: 1.3em;
-    color: white;
+    color: #fff;
     font-weight: 500;
+}
+
+/* * REGISTRAR CUENTA */
+
+/* ? Texto PREGUNTA ¿Aún no tienes...? */
+.inicio-registrar {
+    color: white;
+    text-align: center;
+    font-weight: 500;
+    margin: 25px 0 10px;
+}
+
+/* ? Fuente Texto Total */
+.inicio-registrar p {
+    font-size: 15.5px;
+    font-family: 'mononoki', monospace, 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+/* ? Texto Registrar Link */
+.inicio-registrar p a {
+    color: #7affa6;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* ? Efecto Cuando Se Pasa El Mouse Por Registrar */
+.inicio-registrar p a:hover {
+    text-decoration: underline;
 }
