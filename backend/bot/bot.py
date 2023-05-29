@@ -3,12 +3,11 @@ import nltk
 from nltk.tokenize import sent_tokenize, word_tokenize
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
-import os
 
 
 def extraer_texto(pdf_path):
     with open(pdf_path, 'rb') as file:
-        reader = PyPDF2.PdfReader(file) 
+        reader = PyPDF2.PdfReader(file)
         text = ""
         for page in reader.pages:
             text += page.extract_text()
@@ -58,12 +57,18 @@ def buscar_respuesta(pregunta, texto):
 
 
 # Ruta del archivo PDF
-# pdf_path = "./redes_lan.pdf"
+pdf_path = "./contaminacion.pdf"
 
 # Leer el PDF
+texto = extraer_texto(pdf_path)
 
 
-def generar_pregunta(pregunta,path):
-    texto = extraer_texto(path)
+while True:
+    # Hacer una pregunta
+    pregunta = input("Dame una pregunta: ")
+
+    # Buscar la respuesta
     respuesta = buscar_respuesta(pregunta, texto)
-    return respuesta
+
+    # Imprimir la respuesta
+    print(respuesta)

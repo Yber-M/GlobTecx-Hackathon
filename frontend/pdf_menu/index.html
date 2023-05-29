@@ -1,36 +1,43 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>TECx-BOT</title>
-    <link rel="stylesheet" href="./style.css" />
-  </head>
 
-  <body>
-    <div id="container">
-      <div id="chat">
-        <input
-          type="text"
-          id="input-title"
-          placeholder="Escribe el título de tu archivo"
-        />
-        <h2>TECx-BOT Chat</h2>
-        <div id="messages"></div>
-        <input
-          type="text"
-          id="input-message"
-          placeholder="Escribe un mensaje"
-        />
-      </div>
-      <div id="pdf-viewer">
-        <input type="file" id="pdf-file" accept="application/pdf" />
-        <embed id="pdf-embed" src="" type="application/pdf" />
-      </div>
+<head>
+  <meta charset="UTF-8" />
+  <title>TECx-BOT</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+
+<body>
+  <div id="container">
+    <div id="chat" style="display: none;">
+      <input type="text" id="input-title" placeholder="Escribe el título de tu archivo" />
+      <h2>TECx-BOT Chat</h2>
+      <div id="messages"></div>
+      <input type="text" id="input-message" placeholder="Escribe un mensaje" />
     </div>
-    <div>
-      <button id="btn-guardar">Guardar Archivo</button>
+    <div id="pdf-viewer">
+      <input type="file" id="pdf-file" accept="application/pdf" />
+      <embed id="pdf-embed" src="" type="application/pdf" />
     </div>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="script.js"></script>
-  </body>
+  </div>
+  <div>
+    <button id="btn-flotante" onclick="toggleChat()">Mostrar Chat</button>
+  </div>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="script.js"></script>
+  <script>
+    function toggleChat() {
+      var chat = document.getElementById("chat");
+      var btnFlotante = document.getElementById("btn-flotante");
+
+      if (chat.style.display === "none") {
+        chat.style.display = "block";
+        btnFlotante.style.display = "none";
+      } else {
+        chat.style.display = "none";
+      }
+    }
+  </script>
+</body>
+
 </html>
