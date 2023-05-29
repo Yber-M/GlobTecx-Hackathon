@@ -28,18 +28,7 @@ class FileRoute {
     );
 
     // POSTS
-    this.router.post(
-      "/:id",
-      [
-        check("id")
-          .isMongoId()
-          .withMessage("El 'id' ingresado no corresponde a un 'mongo id"),
-        validate_validations,
-        verify_user,
-      ],
-      upload.single("file"),
-      this.file_ctrl.upload_file
-    );
+    this.router.post("/", upload.single("file"), this.file_ctrl.upload_file);
 
     // DELETE
     this.router.delete(

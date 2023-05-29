@@ -2,6 +2,7 @@ const { request, response } = require("express");
 const File = require("../model/FileSchema");
 const User = require("../model/UserSchema");
 const FileDTO = require("../dtos/FileDTO");
+const path = require("path");
 const Response = require("../model/Response");
 
 class FileService {
@@ -33,47 +34,25 @@ class FileService {
   // POSTS
   async upload_file(req = request, res = response) {
     try {
-      let user = req.user;
+      let file = req.body.body;
+      let upload_path = path.join(__dirname, "../upload_files/");
 
-      if (req.file) {
-        const file = req.file;
-        let file_dto = this.validate_file(req.body);
-        if (file_dto.message) return res.json({ msg: file_dto.message });
+      let file_to_upload = new File({
+        title: file.title,
+        file: file.file,
+        path: `${upload_path}${file.file}`,
+      });
 
-        let file_to_upload = new File({
-          title: file_dto.title,
-          file: file.originalname,
-          path: file.path,
-        });
+      await file_to_upload.save();
 
-        let start = Date.now();
-        await Promise.all([
-          file_to_upload.save(),
-          user.updateOne({
-            $push: { list_files: file_to_upload["_id"] },
-          }),
-        ]);
-        let end = Date.now();
-        const durationMillis = end - start;
-        const durationMicros = durationMillis * 1000;
-        const durationSeconds = durationMillis / 1000;
-
-        res.json({
-          msg: "Archivo Subido",
-          body: "El archivo se subio correctamente",
-          response_time: `milisegundos: ${durationMillis} - microsegundos: ${durationMicros} - segundos: ${durationSeconds}
-          `,
-        });
-      } else {
-        return new Response(res).reply(
-          "Archivo Incorrecto",
-          "El archivo seleccinoado es incorrecto, no es un PDF"
-        );
-      }
+      res.json({
+        msg: "Archivo Subido",
+        body: file_to_upload,
+      });
     } catch (err) {
       return new Response(res).reply(
         "Error",
-        "Ocurrio un error al intentar subir el archivo"
+        `Ocurrio un error al intentar subir el archivo: ${err}`
       );
     }
   }

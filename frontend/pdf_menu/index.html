@@ -1,30 +1,36 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>TECx-BOT</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <title>TECx-BOT</title>
-  <link rel="stylesheet" href="./style.css" />
-</head>
-
-<body>
-  <div id="container">
-    <div id="chat">
-      <input type="text" id="input-title" placeholder="Escribe el título de tu archivo" />
-      <h2>TECx-BOT Chat</h2>
-      <div id="messages"></div>
-      <input type="text" id="input-message" placeholder="Escribe un mensaje" />
+  <body>
+    <div id="container">
+      <div id="chat">
+        <input
+          type="text"
+          id="input-title"
+          placeholder="Escribe el título de tu archivo"
+        />
+        <h2>TECx-BOT Chat</h2>
+        <div id="messages"></div>
+        <input
+          type="text"
+          id="input-message"
+          placeholder="Escribe un mensaje"
+        />
+      </div>
+      <div id="pdf-viewer">
+        <input type="file" id="pdf-file" accept="application/pdf" />
+        <embed id="pdf-embed" src="" type="application/pdf" />
+      </div>
     </div>
-    <div id="pdf-viewer">
-      <input type="file" id="pdf-file" accept="application/pdf" />
-      <embed id="pdf-embed" src="Sin Archivo" type="application/pdf" />
+    <div>
+      <button id="btn-guardar">Guardar Archivo</button>
     </div>
-  </div>
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <script src="script.js"></script>
-</body>
-<div class="btn-guardar">
-  <button>Guardar Archivo</button>
-</div>
-
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="script.js"></script>
+  </body>
 </html>

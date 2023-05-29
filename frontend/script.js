@@ -37,7 +37,8 @@ async function validate() {
     let account = user.body.account;
 
     if (clave === account.password) {
-      window.location.href = "https://www.google.com";
+      window.location.href =
+        "http://localhost:3000/frontend/pdf_menu/index.html";
     } else {
       alert("La clave ingresada es incorrecta");
     }
