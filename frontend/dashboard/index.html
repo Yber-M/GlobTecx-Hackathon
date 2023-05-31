@@ -9,8 +9,7 @@
     <link rel="stylesheet" href="style.css">
 
     <!-- ?  MATERIAL ICONS -->
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
     <title> GLOBTECx- | INICIO </title>
 </head>
 
@@ -32,49 +31,128 @@
             <div class="sidebar">
 
                 <!-- ? Btn Incio -->
-                <a href="#">
-                    <span class="material-symbols-sharp">home</span>
+                <a href="#" class="active">
+                    <span class="material-icons-sharp">home</span>
                     <h3>Incio</h3>
                 </a>
 
                 <!-- ? Btn User -->
                 <a href="#">
-                    <span class="material-symbols-sharp">person</span>
+                    <span class="material-icons-sharp">account_circle</span>
                     <h3>Yb-M</h3>
                 </a>
 
                 <!-- ? Btn Doc -->
                 <a href="#">
-                    <span class="material-symbols-sharp">picture_as_pdf</span>
+                    <span class="material-icons-sharp">picture_as_pdf</span>
                     <h3>Documentos</h3>
                 </a>
 
                 <!-- ? Btn Mensaje -->
                 <a href="#">
-                    <span class="material-symbols-sharp">forum</span>
+                    <span class="material-icons-sharp">question_answer</span>
                     <h3>Mensajes</h3>
                     <span class="msg-count">8</span>
                 </a>
 
                 <!-- ? Btn Correciones -->
                 <a href="#">
-                    <span class="material-symbols-sharp">inventory</span>
+                    <span class="material-icons-sharp">inventory</span>
                     <h3>Correciones</h3>
                 </a>
 
                 <!-- ? Herramientas -->
                 <a href="#">
-                    <span class="material-symbols-sharp">construction</span>
+                    <span class="material-icons-sharp">tune</span>
                     <h3>Herramientas</h3>
                 </a>
 
                 <!-- ? Cerrar Sesion -->
                 <a href="#">
-                    <span class="material-symbols-sharp">logout</span>
+                    <span class="material-icons-sharp">logout</span>
                     <h3>Cerrar Sesión</h3>
                 </a>
             </div>
         </aside>
+
+        <main>
+            <h1>Resúmen</h1>
+
+            <!-- * Input Fecha -->
+            <div class="date">
+                <input type="date">
+            </div>
+
+            <!-- * Seccion de las estadisticas -->
+            <div class="estadisticas">
+
+                <!-- ? Estado de tesis -->
+                <div class="Notas">
+                    <span class="material-icons-sharp">analytics</span>
+                    <div class="middle">
+                        <div class="left">
+                             <h3>Estado de tésis</h3>
+                             <!-- <h1>18</h1> -->
+                             <h1>En Proceso</h1>
+                        </div>
+                        <div class="progreso">
+                            <svg>
+                                <circle cx='38' cy='38' r='36'></circle>
+                            </svg>
+
+                            <div class="number">
+                                <p>80%</p>
+                            </div>
+                        </div>
+                        <small class="text-muted">Actualizado hace 8h</small>
+                    </div>
+                </div>
+
+                <!-- ? Notas -->
+                <div class="Notas">
+                    <span class="material-icons-sharp">stars</span>
+                    <div class="middle">
+                        <div class="left">
+                            <h3>Notas</h3>
+                            <h1>18/20</h1>
+                            <!-- <h1>Completado</h1> -->
+                        </div>
+                        <div class="progreso">
+                            <svg>
+                                <circle cx='38' cy='38' r='36'></circle>
+                            </svg>
+                
+                            <div class="number">
+                                <p>18</p>
+                            </div>
+                        </div>
+                        <small class="text-muted">Actualizado hace 4h</small>
+                    </div>
+                </div>
+
+                <!-- ? Plagio -->
+                <div class="Notas">
+                    <span class="material-icons-sharp">warning</span>
+                    <div class="middle">
+                        <div class="left">
+                            <h3>Antiplagio</h3>
+                            <h1>Similitud:</h1>
+                            <!-- <h1>Completado</h1> -->
+                        </div>
+                        <div class="progreso">
+                            <svg>
+                                <circle cx='38' cy='38' r='36'></circle>
+                            </svg>
+                
+                            <div class="number">
+                                <p>20%</p>
+                            </div>
+                        </div>
+                        <small class="text-muted">Actualizado hace 3h</small>
+                    </div>
+                </div>
+            </div>
+        </main>
     </div>
 </body>
 
