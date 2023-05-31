@@ -92,18 +92,30 @@ class Chatbox {
     } else {
       let msg2 = { name: "user", message: text1 };
       this.updateChatText(msg2);
+      this.messages.push(msg2);
       textField.value = "";
     }
   }
 
-  updateChatText(chatbox) {
+  async updateChatText(chatbox) {
     var html = "";
-    this.messages.push(chatbox);
+    let data = { question: chatbox.message };
+
+    try {
+      let bot = await axios.post("http://127.0.0.1:5001/", data);
+      let bot_response = bot.data;
+      this.messages.push(bot_response);
+    } catch (err) {
+      this.messages.push({
+        name: "tecx-bot",
+        message: "Ocurrio un error en el servidor",
+      });
+    }
     this.messages
       .slice()
       .reverse()
       .forEach(function (item, index) {
-        if (item.name === "TEXc-BOT") {
+        if (item.name === "tecx-bot") {
           html +=
             '<div class="messages__item messages__item--visitor">' +
             item.message +

@@ -1,10 +1,11 @@
 const express = require("express");
 const compression = require("compression");
 const cors = require("cors");
+const path = require("path");
 
 const user_route = require("../routes/UserRoute");
 const file_route = require("../routes/FileRoute");
-const path = require("path");
+const bot_route = require("../routes/BotRoute");
 
 class Server {
   constructor() {
@@ -24,6 +25,7 @@ class Server {
     // USERS
     this.app.use("/users", user_route);
     this.app.use("/files", file_route);
+    this.app.use("/bot", bot_route);
     this.app.use(
       "/public",
       express.static(path.join(__dirname, "../../../frontend"))
