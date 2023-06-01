@@ -1,6 +1,33 @@
 /* * Google FONTS - Source Code Pro */
 @import url('https://fonts.googleapwis.com/css2?family=Source+Code+Pro:wght@300;400;500;600;700;800&display=swap');
 
+/* * Google Icon - Material Icon */
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    /* Preferred icon size */
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased;
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility;
+
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale;
+
+    /* Support for IE. */
+    font-feature-settings: 'liga';
+}
+
 /* * VARIABLES COLOR ROOT */
 :root {
     /* ? Paleta de Colores */
@@ -51,14 +78,16 @@ body {
     background: #f6f6f9;
     user-select: none;
     overflow-x: hidden;
+    color: var(--color-dark);
 }
 
+/* * Contenedor de las secciones de la web */
 .container {
     display: grid;
-    width: 96%;
+    width:98%;
     margin: 0 auto;
     gap: 1.8rem;
-    grid-template-columns: 14rem auto 23rem ;
+    grid-template-columns: 14rem auto 23rem;
 }
 
 a {
@@ -131,17 +160,138 @@ b {
     color: var(--color-warnign);
 }
 
+/* * Banner para ver todas las secciones */
 aside {
     height: 100vh;
-    background: gray;
+
+    /* No estaba */
+    width: 30vh;
 }
 
+aside .top {
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1.4rem;
+}
+
+aside .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+aside .logo img {
+    width: 4rem;
+    height: 4rem;
+}
+
+aside .close {
+    display: none;
+}
+
+/* * SIDEBAR */
+aside .sidebar {
+    display: flex;
+    flex-direction: column;
+    height: 86vh;
+    position: relative;
+    top: 3rem;
+}
+
+aside h3 {
+    font-weight: 500;
+}
+
+aside .sidebar a {
+    display: flex;
+    color: var(--color-info-dark);
+    margin-left: 2rem;
+    gap: 1rem;
+    align-items: center;
+    position: relative;
+    height: 4rem;
+    transition: all 300ms ease;
+}
+
+/* ? Indicador de mensajes */
+aside .sidebar a span {
+    font-size: 1.5rem;
+    transition: all 300ms ease;
+}
+
+aside .sidebar a:last-child {
+    position: absolute;
+    bottom: 2rem;
+    width: 100%;
+}
+
+/* ? Indicador de la seccion en la que se encuentra */
+aside .sidebar a.active{
+    background: var(--color-info-ligth);
+    margin-left: 0;
+}
+
+aside .sidebar a.active:before {
+    content: '';
+    width: 6px;
+    height: 100%;
+    background: var(--color-primario);
+}
+
+aside .sidebar a.active span {
+    color: var(--color-succes);
+    margin-left: calc(1rem - 3px);
+}
+
+/* ? Efecto al pasar el mouse */
+aside .sidebar a:hover {
+    color: var(--color-primario);
+}
+
+aside .sidebar a:hover span {
+    margin-left: 1rem;
+
+}
+
+/* * Contador de mensajes */
+aside .sidebar .msg-count {
+    background: var(--color-primario);
+    color: var(--color-white);
+    padding: 2px 10px;
+    font-size: 11px;
+    border-radius: var(--border-radius-1);
+}
+
+/* * Efecto color mitad TEC x- */
 .span-txtlogo {
     color: var(--color-primario);
 }
 
 .span-x- {
-    font-size: 1rem;
-    font-family: 'Couture';
+    font-size: 1.5rem;
+    font-family: 'mononoki';
     color: var(--color-primario);
+}
+
+
+/* * Contenido de cada etiqueta - MAIN */
+
+main {
+    margin-top: 1.4rem;
+}
+
+/* ? Parte donde se visualizara la fecha */
+main .date {
+    display: inline-block;
+    background: var(--color-light);
+    border-radius: var(--border-radius-1);
+    margin-top: 1rem;
+    padding: 0.5rem 1.6rem;
+}
+
+main .date input[type='date'] {
+    background: transparent;
+    color: var(--color-dark);
 }
