@@ -44,8 +44,8 @@
 
                 <!-- ? Btn Doc -->
                 <a href="#">
-                    <span class="material-icons-sharp">picture_as_pdf</span>
-                    <h3>Documentos</h3>
+                    <span class="material-icons-sharp">history_edu</span>
+                    <h3>Tesis</h3>
                 </a>
 
                 <!-- ? Btn Mensaje -->
@@ -76,24 +76,35 @@
         </aside>
 
         <main>
-            <h1>Resúmen</h1>
 
             <!-- * Input Fecha -->
             <div class="date">
+                <span>Buscar por fecha:</span>
                 <input type="date">
             </div>
+
+            <!-- * TITULO DE TESIS -->
+            <h1 class="titlo-tesis">Titulo de Tesis</h1>
+
+            <!-- ? TEXTO DEL TITULO DE LA TESIS -->
+            <div class="title-tesista">
+                "TECx-: Desarrollo de un Sistema Inteligente de Apoyo para la
+                Elaboracion de Tesis"
+            </div>
+
+            <!-- <h1>Resúmen</h1> -->
 
             <!-- * Seccion de las estadisticas -->
             <div class="estadisticas">
 
                 <!-- ? Estado de tesis -->
-                <div class="Notas">
+                <div class="statustesis">
                     <span class="material-icons-sharp">analytics</span>
                     <div class="middle">
                         <div class="left">
-                             <h3>Estado de tésis</h3>
-                             <!-- <h1>18</h1> -->
-                             <h1>En Proceso</h1>
+                            <h3>Tésis Actual</h3>
+                            <!-- <h1>18</h1> -->
+                            <h1>En Proceso</h1>
                         </div>
                         <div class="progreso">
                             <svg>
@@ -101,58 +112,223 @@
                             </svg>
 
                             <div class="number">
-                                <p>80%</p>
+                                <p>45%</p>
                             </div>
                         </div>
-                        <small class="text-muted">Actualizado hace 8h</small>
                     </div>
+                    <small class="text-muted">Actualizado hace 28d</small>
                 </div>
 
                 <!-- ? Notas -->
-                <div class="Notas">
+                <div class="statusnotas">
                     <span class="material-icons-sharp">stars</span>
                     <div class="middle">
                         <div class="left">
                             <h3>Notas</h3>
-                            <h1>18/20</h1>
+                            <h1>12/20</h1>
                             <!-- <h1>Completado</h1> -->
                         </div>
                         <div class="progreso">
                             <svg>
                                 <circle cx='38' cy='38' r='36'></circle>
                             </svg>
-                
+
                             <div class="number">
-                                <p>18</p>
+                                <p>12</p>
                             </div>
                         </div>
-                        <small class="text-muted">Actualizado hace 4h</small>
                     </div>
+                    <small class="text-muted">Actualizado hace 4h</small>
                 </div>
 
                 <!-- ? Plagio -->
-                <div class="Notas">
+                <div class="statusplagio">
                     <span class="material-icons-sharp">warning</span>
                     <div class="middle">
                         <div class="left">
                             <h3>Antiplagio</h3>
-                            <h1>Similitud:</h1>
+                            <h1>Similitud</h1>
                             <!-- <h1>Completado</h1> -->
                         </div>
                         <div class="progreso">
                             <svg>
                                 <circle cx='38' cy='38' r='36'></circle>
                             </svg>
-                
+
                             <div class="number">
-                                <p>20%</p>
+                                <p>44%</p>
                             </div>
                         </div>
-                        <small class="text-muted">Actualizado hace 3h</small>
+                    </div>
+                    <small class="text-muted">Actualizado hace 3h</small>
+                </div>
+            </div>
+
+            <!-- * TABLA De Archivos Subidos-->
+            <div class="archivos-update">
+                <h2>Archivos Cargados</h2>
+                <table class="tabla-archiv">
+                    <!-- ? CABECERA de la tabla -->
+                    <thead>
+                        <tr>
+                            <th>N°</th>
+                            <th>Titulo de la tesis</th>
+                            <th>Fecha de Subida</th>
+                            <th>Fecha de Culminación</th>
+                            <th>Antiplagio</th>
+                            <th>Linea de investigación</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+
+                    <!-- ? Primera fila -->
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>TECx-: Desarrollo de un Sistema de Inteligencia Artificial de Apoyo para la
+                                Elaboracion de Tesis</td>
+                            <td>03/06/2023</td>
+                            <td>----------</td>
+                            <td>44%</td>
+                            <td>Tecnología de la información y comunicación</td>
+                            <td class="status-tbl">En proceso</td>
+                            <td class="tabla-ver">Ver</td>
+                        </tr>
+                    </tbody>
+
+                    <!-- ? Segunda Fila -->
+                    <tbody>
+                        <tr>
+                            <td>2</td>
+                            <td>Sistema Web para la Gestión de Incidencias en la
+                                Empresa BUSINESSOFT S.R.L</td>
+                            <td>31/03/2017</td>
+                            <td>31/12/2018</td>
+                            <td>0%</td>
+                            <td>Sistemas de información y comunicaciones</td>
+                            <td class="status-tbl">Aprobado</td>
+                            <td class="tabla-ver">Ver</td>
+                        </tr>
+                    </tbody>
+
+
+                    <!-- ? Tercera Fila -->
+                    <tbody>
+                        <tr>
+                            <td>3</td>
+                            <td>Percepción del Campo virtual y la satisfacción de los estudiantes de Ingeniería de
+                                Sistemas de la Universidad César
+                                Vallejo- Ate</td>
+                            <td>03/06/2015</td>
+                            <td>03/03/2016</td>
+                            <td>0%</td>
+                            <td>Innovaciones Pedagógicas</td>
+                            <td class="status-tbl">Aprobado</td>
+                            <td class="tabla-ver">Ver</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- ? Mostrar más -->
+                <a href="">Mostrar más</a>
+            </div>
+        </main>
+
+        <!-- * TERCERA SECCION -->
+        <div class="right">
+            <div class="top">
+
+                <!-- ? Menu -->
+                <button id="menu-btn">
+                    <span class="material-icons-sharp">menu</span>
+                </button>
+
+                <!-- ? Tema Dark-Light  -->
+                <div class="modo-visualizador">
+                    <span class="material-icons-sharp active">light_mode</span>
+                    <span class="material-icons-sharp">dark_mode</span>
+                </div>
+
+                <!-- ? Texto Hola <user>-->
+                <div class="profile">
+                    <div class="info">
+                        <p>Hola!, <b>Yber-M</b> </p>
+                        <small class="text-muted">Admin</small>
+                    </div>
+                </div>
+
+                <!-- ? Foto de Usuario -->
+                <div class="perfil-foto" style="width: 32px;">
+                    <img src="img/perfil-foto.png" alt="user-img">
+                </div>
+            </div>
+            <!-- * NUEVAS ACTUALIZACIONES -->
+            <div class="recientes-update">
+                <h2>Mensajes</h2>
+    
+                <!-- ? Seccion de Actualizaciones -->
+                <div class="updates">
+    
+                    <!-- ? Actualizacion Por Persona  -->
+                    <div class="update-sola">
+    
+                        <!-- ? Immagen de Persona -->
+                        <div class="foto-update">
+                            <span class="material-icons-sharp">account_circle</span>
+                        </div>
+    
+                        <div class="mensaje-update">
+                            <p><b>Dr. Wibaldo Estrada</b> tienes errores que debes corregir que según tu índice es el 2.1</p>
+                            <small class="text-muted">Hace 1 día</small>
+                        </div>
+                    </div>
+    
+                    <!-- ? Actualizacion Por Persona  -->
+                    <div class="update-sola">
+                    
+                        <!-- ? Immagen de Persona -->
+                        <div class="foto-update">
+                            <span class="material-icons-sharp">account_circle</span>
+                        </div>
+                    
+                        <div class="mensaje-update">
+                            <p><b>Dr. Wibaldo Estrada</b> El nivel de similitud marca 44%, te recomiendo que verifiques y corrijas las citas. </p>
+                            <small class="text-muted">Hace 2 día</small>
+                        </div>
+                    </div>
+    
+                    <!-- ? Actualizacion Por Persona  -->
+                    <div class="update-sola">
+                    
+                        <!-- ? Immagen de Persona -->
+                        <div class="foto-update">
+                            <span class="material-icons-sharp">account_circle</span>
+                        </div>
+                    
+                        <div class="mensaje-update">
+                            <p><b>Mgtr. Jesus Esquives</b>Los margenes no están configurados adecuadamente con el formato de APA 7</p>
+                            <small class="text-muted">Hace 1 semana</small>
+                        </div>
+                    </div>
+    
+                    <!-- ? Actualizacion Por Persona  -->
+                    <div class="update-sola">
+                    
+                        <!-- ? Immagen de Persona -->
+                        <div class="foto-update">
+                            <span class="material-icons-sharp">account_circle</span>
+                        </div>
+                    
+                        <div class="mensaje-update">
+                            <p><b>Mgtr. Aureliano Buendia</b> te deseo los mejores exitos en la elaboración de tu tesis. No te rindas!</p>
+                            <small class="text-muted">Hace 1 semana</small>
+                        </div>
                     </div>
                 </div>
             </div>
-        </main>
+        </div>
+
+
     </div>
 </body>
 
