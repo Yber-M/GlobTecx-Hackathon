@@ -62,7 +62,7 @@
     --color-dark: #edeffd;
     --color-variant-dark: #a3bdcc;
     --color-light: rgba(0, 0, 0, 0.4);
-    --box-shadow: 0 2rem 3rem var(--color-light); 
+    --box-shadow: 0 2rem 3rem var(--color-light);
 }
 
 * {
@@ -99,6 +99,7 @@ body {
     gap: 1.8rem;
     grid-template-columns: 14rem auto 23rem;
 }
+
 
 a {
     color: black;
@@ -174,7 +175,6 @@ b {
 /* * Banner para ver todas las secciones */
 aside {
     height: 100vh;
-
     /* No estaba */
     width: 30vh;
 }
@@ -212,6 +212,7 @@ aside .sidebar {
 }
 
 aside h3 {
+    
     font-weight: 500;
 }
 
@@ -296,13 +297,18 @@ main {
 main .titlo-tesis {
     padding: 1rem 0 1rem 1rem;
     color: var(--color-primario);
-    text-align: center  ;
+    text-align: center;
 }
 
 main .title-tesista {
-    text-align: center  ;
+    text-align: center;
     padding: 0 0 1rem 1rem;
-    font-size: 1rem;
+    font-size: 3rem;
+}
+
+main .user-text {
+    text-align: center;
+    margin-top: 1rem;
 }
 
 /* ? Parte donde se visualizara la fecha */
@@ -312,6 +318,25 @@ main .date {
     border-radius: var(--border-radius-1);
     margin-top: 1rem;
     padding: 0.5rem 1.6rem;
+}
+
+main .subtitle-user {
+    margin: 1rem;
+    font-size: 1.5rem;
+}
+
+main .img-perfil img { 
+    margin-top: 2rem;
+    width: 200px;
+    border: var(--color-primario);
+    border-style: solid;
+    border-radius: 50%;
+}
+
+main .img-perfil label {
+    /* display: flex; */
+    margin-top: -10rem;
+    color: var(--color-primario);
 }
 
 main .date input[type='date'] {
@@ -548,6 +573,11 @@ main .archivos-update a {
         grid-template-columns: 7rem auto 23rem;
     }
 
+    .tabla-archiv thead tr th {
+        text-align: center;
+        margin-right: 5rem;
+    }
+
     aside .logo h2 {
         display: none;
     }
@@ -618,13 +648,15 @@ main .archivos-update a {
             left: 0;
         }
     }
+    main .user-text {
+        font-size: 1.2rem;
+    }
 
     aside .logo {
         margin-left: 1rem;
         margin-right: 1.5rem;
 
     }
-
 
     aside .logo h2 {
         display: inline;
@@ -719,5 +751,5 @@ main .archivos-update a {
 
     .right .top button span {
         font-size: 2rem;
-    }    
+    }
 }

@@ -23,17 +23,6 @@ const Tesis = [
 
     {
         n: 3,
-        tituloDeTesis: 'Percepción del Campo virtual y la satisfacción de los estudiantes de Ingeniería de Sistemas de la Universidad César Vallejo- Ate',
-        fechaSubda: '03/06/2015',
-        fechaCulmin: '03/03/2016',
-        antiplagio: 0,
-        LineaInves: 'Innovaciones Pedagógicas',
-        Estado: 'Aprobado',
-        colorStatus: 'style="color: var(--color-primario);"'
-    },
-
-    {
-        n: 4,
         tituloDeTesis: 'Un Estudio Superficial y Sin Fundamento sobre un Tema Irrelevante para la Investigación Académicas',
         fechaSubda: '03/06/2015',
         fechaCulmin: '01/03/2016',
@@ -42,6 +31,20 @@ const Tesis = [
         Estado: 'Rechazado',
         colorStatus: 'style="color: var(--color-danger);"'
     }
-
-
 ]
+
+// Add tesis en tabla
+Tesis.forEach(tesis => {
+    const tr = document.createElement('tr');
+    const trContenido = `
+        <td>${tesis.n}</td>
+        <td>${tesis.tituloDeTesis}</td>
+        <td>${tesis.fechaSubda}</td>
+        <td>${tesis.fechaCulmin}</td>
+        <td>${tesis.antiplagio}%</td>
+        <td>${tesis.LineaInves}</td>
+        <td class="status-tbl"><b ${tesis.colorStatus}>${tesis.Estado}</b></td>
+    `;
+    tr.innerHTML = trContenido;
+    document.querySelector('table tbody').appendChild(tr);
+});

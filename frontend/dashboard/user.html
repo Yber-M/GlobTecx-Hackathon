@@ -6,11 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="../img/logoFondoRedondo.png">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="user.css">
 
     <!-- ?  MATERIAL ICONS -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
-    <title>GLOBTECx-</title>
+    <title>Tesis</title>
 </head>
 
 <body>
@@ -31,13 +31,13 @@
             <div class="sidebar">
 
                 <!-- ? Btn Incio -->
-                <a href="index.html" class="active">
+                <a href="index.html">
                     <span class="material-icons-sharp">home</span>
                     <h3>Incio</h3>
                 </a>
 
                 <!-- ? Btn User -->
-                <a href="user.html">
+                <a href="user.html" class="active">
                     <span class="material-icons-sharp">account_circle</span>
                     <h3>Yber-M</h3>
                 </a>
@@ -77,117 +77,64 @@
 
         <main>
 
-            <!-- * Input Fecha -->
-            <div class="date">
-                <span>Buscar por fecha:</span>
-                <input type="date">
-            </div>
-
             <!-- * TITULO DE TESIS -->
-            <h1 class="titlo-tesis">Titulo de Tesis</h1>
+            <h1 class="titlo-tesis">Bienvenido a GLOBTECx-</h1>
 
             <!-- ? TEXTO DEL TITULO DE LA TESIS -->
             <div class="title-tesista">
-                "TECx-: Desarrollo de un Sistema Inteligente de Apoyo para la
-                Elaboracion de Tesis"
+                Marlon Yber Quispe Olano
             </div>
+
+            <div class="img-perfil">
+                <center>
+                    <img src="img/mostrarperfil.png" alt="">
+                    
+
+                    <label for="archivoInput" style="cursor: pointer;">
+                        <span href="" style="cursor: pointer;" class="material-icons-sharp">
+                            drive_file_rename_outline
+                        </span>
+                        Cambiar foto
+                    </label>
+                    <input id="archivoInput" type="file" style="display: none;">
+
+                </center>
+            </div>
+
+            <div class="user-text">
+                MQUISPEOL
+            </div>
+
 
             <!-- <h1>Resúmen</h1> -->
 
             <!-- * Seccion de las estadisticas -->
-            <div class="estadisticas">
-
-                <!-- ? Estado de tesis -->
-                <div class="statustesis">
-                    <span class="material-icons-sharp">analytics</span>
-                    <div class="middle">
-                        <div class="left">
-                            <h3>Tésis Actual</h3>
-                            <!-- <h1>18</h1> -->
-                            <h1>En Proceso</h1>
-                        </div>
-                        <div class="progreso">
-                            <svg>
-                                <circle cx='38' cy='38' r='36'></circle>
-                            </svg>
-
-                            <div class="number">
-                                <p>45%</p>
-                            </div>
-                        </div>
-                    </div>
-                    <small class="text-muted">Actualizado hace 28d</small>
-                </div>
-
-                <!-- ? Notas -->
-                <div class="statusnotas">
-                    <span class="material-icons-sharp">stars</span>
-                    <div class="middle">
-                        <div class="left">
-                            <h3>Notas</h3>
-                            <h1>12/20</h1>
-                            <!-- <h1>Completado</h1> -->
-                        </div>
-                        <div class="progreso">
-                            <svg>
-                                <circle cx='38' cy='38' r='36'></circle>
-                            </svg>
-
-                            <div class="number">
-                                <p>12</p>
-                            </div>
-                        </div>
-                    </div>
-                    <small class="text-muted">Actualizado hace 4h</small>
-                </div>
-
-                <!-- ? Plagio -->
-                <div class="statusplagio">
-                    <span class="material-icons-sharp">warning</span>
-                    <div class="middle">
-                        <div class="left">
-                            <h3>Antiplagio</h3>
-                            <h1>Similitud</h1>
-                            <!-- <h1>Completado</h1> -->
-                        </div>
-                        <div class="progreso">
-                            <svg>
-                                <circle cx='38' cy='38' r='36'></circle>
-                            </svg>
-
-                            <div class="number">
-                                <p>44%</p>
-                            </div>
-                        </div>
-                    </div>
-                    <small class="text-muted">Actualizado hace 3h</small>
-                </div>
+            <div class="subtitle-user">
+                <!-- Información Básica  -->
             </div>
+
 
             <!-- * TABLA De Archivos Subidos-->
             <div class="archivos-update">
-                <h2>Archivos Cargados</h2>
+                <h1>Información Básica <span href="" style="cursor: pointer;" class="material-icons-sharp">
+                        drive_file_rename_outline
+                    </span></h1>
                 <table class="tabla-archiv">
                     <!-- ? CABECERA de la tabla -->
                     <thead>
                         <tr>
-                            <th>N°</th>
-                            <th>Titulo de la tesis</th>
-                            <th>Fecha de Subida</th>
-                            <th>Fecha de Culminación</th>
-                            <th>Antiplagio</th>
-                            <th>Linea de investigación</th>
-                            <th>Estado</th>
+                            <th>ID de estudiante</th>
+                            <th>Nombre completo</th>
+                            <th>Correo electrónico</th>
                         </tr>
                     </thead>
-
                     <!-- ? Aca se mostrara la informacion -->
-                    <tbody>
-                        
-                </table>
 
-                <!-- ? Mostrar más -->
-                <b><a href=""> Mostrar más</a></b>
+                    <tbody>
+
+                    </tbody>
+
+                </table>
             </div>
         </main>
 
@@ -221,24 +168,68 @@
             </div>
             <!-- * NUEVAS ACTUALIZACIONES -->
             <div class="recientes-update">
-                <h2>Mensajes</h2>
-
+                <h2>Otras configuraciones</h2>
+                
                 <!-- ? Seccion de Actualizaciones -->
                 <div class="updates">
 
                     <!-- ? Actualizacion Por Persona  -->
                     <div class="update-sola">
-
+                    
                         <!-- ? Immagen de Persona -->
                         <div class="foto-update">
-                            <img src="img/fotoPerfilRios.jpg" alt="">
+                            <span class="material-icons-sharp">
+                                badge
+                            </span>
                         </div>
-
+                    
                         <div class="mensaje-update">
-                            <p><b>Mgtr. Josue Rios</b> <br> Tienes errores que debes corregir que según tu índice es
-                                el
-                                2.1</p>
-                            <small class="text-muted">Hace 1 día</small>
+                            <p><b>Pronombres</b> <br>Yber-M</p>
+                        </div>
+                    </div>
+                    
+                    <!-- ? Actualizacion Por Persona  -->
+                    <div class="update-sola">
+                    
+                        <!-- ? Immagen de Persona -->
+                        <div class="foto-update">
+                            <span class="material-icons-sharp">
+                                male
+                            </span>
+                        </div>
+                    
+                        <div class="mensaje-update">
+                            <p><b>Sexo</b> <br>Masculino</p>
+                        </div>
+                    </div>
+                    
+                    <!-- ? Actualizacion Por Persona  -->
+                    <div class="update-sola">
+                    
+                        <!-- ? Immagen de Persona -->
+                        <div class="foto-update">
+                            <span class="material-icons-sharp">
+                                call
+                            </span>
+                        </div>
+                    
+                        <div class="mensaje-update">
+                            <p><b>Teléfono</b> <br>+51 999 888 444</p>
+                        </div>
+                    </div>
+                    
+                    <!-- ? Actualizacion Por Persona  -->
+                    <div class="update-sola">
+                    
+                        <!-- ? Immagen de Persona -->
+                        <div class="foto-update">
+                            <span class="material-icons-sharp">
+                                cake
+                            </span>
+                        </div>
+                    
+                        <div class="mensaje-update">
+                            <p><b>Fecha de Nacimiento</b> <br>06/07/2004</p>
                         </div>
                     </div>
 
@@ -247,14 +238,13 @@
 
                         <!-- ? Immagen de Persona -->
                         <div class="foto-update">
-                            <img src="img/fotoPerfilRios.jpg" alt="">
+                            <span class="material-icons-sharp">
+                                public
+                            </span>
                         </div>
 
                         <div class="mensaje-update">
-                            <p><b>Mgtr. Josue Rios</b> <br>El nivel de similitud marca 44%, te recomiendo que
-                                verifiques
-                                y corrijas las citas. </p>
-                            <small class="text-muted">Hace 2 día</small>
+                            <p><b>Idioma</b> <br> Predeterminado del sistema (Español(España))</p>
                         </div>
                     </div>
 
@@ -263,13 +253,14 @@
 
                         <!-- ? Immagen de Persona -->
                         <div class="foto-update">
-                            <img src="img/fotoPerfilJesus.png" alt="">
+                            <span class="material-icons-sharp">
+                                verified_user
+                            </span>
                         </div>
 
                         <div class="mensaje-update">
-                            <p><b>Mgtr. Jesus Esquives</b><br> Los margenes no están configurados adecuadamente con el
-                                formato de APA 7</p>
-                            <small class="text-muted">Hace 1 semana</small>
+                            <p><b>Ajustes de privacidad</b> <br>Solo los profesores pueden ver la información de mi
+                                perfil. </p>
                         </div>
                     </div>
 
@@ -278,43 +269,16 @@
 
                         <!-- ? Immagen de Persona -->
                         <div class="foto-update">
-                           <img src="img/fotoPerfilBot.png" alt="">
+                            <span class="material-icons-sharp">
+                                notifications
+                            </span>
                         </div>
 
                         <div class="mensaje-update">
-                            <p><b>TECX-BOT</b> <br>Hola soy TECx-, soy una IA que está aquí para ayudarte, no dudes en consultarme cualquier duda.</p>
-                            <small class="text-muted">Hace 1 semana</small>
-                        </div>
-                    </div>
-
-                    <!-- ? Actualizacion Por Persona  -->
-                    <div class="update-sola">
-
-                        <!-- ? Immagen de Persona -->
-                        <div class="foto-update">
-                            <img src="img/fotoPerfilRudy.jpg" alt="">
-                        </div>
-
-                        <div class="mensaje-update">
-                            <p><b>Dr. Rudy Chapoñan</b> <br>te deseo los mejores exitos en la elaboración de tu
-                                tesis.
-                                ¡No te rindas!</p>
-                            <small class="text-muted">Hace 4 meses</small>
-                        </div>
-                    </div>
-
-                    <!-- ? Actualizacion Por Persona  -->
-                    <div class="update-sola">
-
-                        <!-- ? Immagen de Persona -->
-                        <div class="foto-update">
-                            <img src="img/fotoPerfilRudy.jpg" alt="">
-                        </div>
-
-                        <div class="mensaje-update">
-                            <p><b>Dr. Rudy Chapoñan</b> <br>Bienvenido a la herramiento GLOBTECx-
-                                te ayudará mucho en el desarrolo de tu tesis.</p>
-                            <small class="text-muted">Hace 4 meses</small>
+                            <p><b>Ajustes de notificaciones</b><br>
+                            Notificaciones de Secuencias
+                            Notificaciones Correo electrónico
+                            Notificaciones Emergentes</p>
                         </div>
                     </div>
                 </div>
@@ -323,7 +287,7 @@
     </div>
 
 
-    <script src="tesisUpdate.js"></script>
+    <script src="datosUser.js"></script>
     <script src="script.js"></script>
 </body>
 
