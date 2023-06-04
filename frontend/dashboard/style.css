@@ -55,6 +55,16 @@
     --box-shadow: 0 2rem 3rem var(--color-light);
 }
 
+/* * VARIABLES DE MODO OSCURO */
+.modo-oscuro-variables {
+    --color-background: #181a1e;
+    --color-white: #202528;
+    --color-dark: #edeffd;
+    --color-variant-dark: #a3bdcc;
+    --color-light: rgba(0, 0, 0, 0.4);
+    --box-shadow: 0 2rem 3rem var(--color-light); 
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -75,7 +85,7 @@ body {
     height: 100vh;
     font-family: 'Source Code Pro', monospace;
     font-size: 0.88rem;
-    background: #f6f6f9;
+    background: var(--color-white);
     user-select: none;
     overflow-x: hidden;
     color: var(--color-dark);
@@ -230,7 +240,7 @@ aside .sidebar a:last-child {
 
 /* ? Indicador de la seccion en la que se encuentra */
 aside .sidebar a.active {
-    background: var(--color-info-ligth);
+    background: var(--color-light);
     margin-left: 0;
 }
 
@@ -425,7 +435,7 @@ main .archivos-update table:hover {
 
 main table tbody td {
     height: 2.8rem;
-    border-bottom: 1px solid var(--color-light);
+    border-bottom: 1px solid var(--color-info-dark);
     color: var(--color-dark);
 }
 
@@ -649,7 +659,7 @@ main .archivos-update a {
 
     aside {
         position: fixed;
-        left: 0;
+        left: -100%;
         background: var(--color-white);
         width: 18rem;
         z-index: 3;
@@ -657,6 +667,13 @@ main .archivos-update a {
         height: 100vh;
         padding-right: var(--card-padding);
         display: none;
+        animation: showMenu 300ms ease forwards;
+    }
+
+    @keyframes showMenu {
+        to {
+            left: 0;
+        }
     }
 
     aside .logo {
@@ -767,7 +784,5 @@ main .archivos-update a {
 
     .right .top button span {
         font-size: 2rem;
-    }
+    }    
 }
-
-/* * 1:17:13 */
