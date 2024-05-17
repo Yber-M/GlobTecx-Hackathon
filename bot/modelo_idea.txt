@@ -1,0 +1,93 @@
+import PyPDF2
+import nltk
+from nltk.tokenize import sent_tokenize, word_tokenize
+from nltk.corpus import stopwords
+from nltk.stem import WordNetLemmatizer
+from difflib import SequenceMatcher
+
+
+def extraer_texto(pdf_path):
+    with open(pdf_path, 'rb') as file:
+        reader = PyPDF2.PdfReader(file)
+        text = ""
+        for page in reader.pages:
+            text += page.extract_text()
+    return text
+
+
+def preprocesar_texto(texto):
+    # Tokenización en oraciones y palabras
+    oraciones = sent_tokenize(texto)
+    palabras = word_tokenize(texto)
+
+    # Eliminar stopwords y puntuación
+    stopwords_esp = set(stopwords.words('spanish'))
+    palabras = [palabra.lower() for palabra in palabras if palabra.isalpha()]
+    palabras = [palabra for palabra in palabras if palabra not in stopwords_esp]
+
+    # Lematización
+    lematizador = WordNetLemmatizer()
+    palabras = [lematizador.lemmatize(palabra) for palabra in palabras]
+
+    return palabras
+
+
+def buscar_respuesta(pregunta, texto):
+    # Preprocesar la pregunta
+    palabras_pregunta = preprocesar_texto(pregunta)
+
+    # Preprocesar el texto y obtener las oraciones
+    palabras_texto = preprocesar_texto(texto)
+    oraciones = sent_tokenize(texto)
+
+    # Buscar las palabras clave en el texto
+    palabras_clave = [
+        palabra for palabra in palabras_pregunta if palabra in palabras_texto]
+
+    # Construir la respuesta
+    respuesta = "No se encontró respuesta."
+    if palabras_clave:
+        respuesta = "La respuesta es: "
+        for palabra in palabras_clave:
+            for i, oracion in enumerate(oraciones):
+                if palabra in oracion:
+                    respuesta += oracion
+                    break
+
+    return respuesta
+
+
+def generar_correcciones(pdf_incorrecto, pdfs_veridicos):
+    texto_incorrecto = extraer_texto(pdf_incorrecto)
+    texto_incorrecto_procesado = preprocesar_texto(texto_incorrecto)
+    correcciones = []
+
+    for i, pdf_veridico in enumerate(pdfs_veridicos):
+        texto_veridico = extraer_texto(pdf_veridico)
+        texto_veridico_procesado = preprocesar_texto(texto_veridico)
+        similitud = SequenceMatcher(
+            None, texto_incorrecto_procesado, texto_veridico_procesado).ratio()
+        correcciones.append((pdf_veridico, similitud))
+
+    correcciones.sort(key=lambda x: x[1], reverse=True)
+    return correcciones
+
+
+# Ruta del archivo PDF incorrecto
+pdf_incorrecto = "./contaminacion.pdf"
+
+# Lista de PDFs verídicos
+pdfs_veridicos = [
+    "./redes_lan.pdf",
+    "./contaminacion.pdf",
+]
+
+# Generar lista de correcciones
+correcciones = generar_correcciones(pdf_incorrecto, pdfs_veridicos)
+
+if correcciones:
+    print("Se encontraron correcciones:")
+    for pdf_veridico, similitud in correcciones:
+        print(f"PDF verídico: {pdf_veridico} - {similitud}% de similitud.")
+else:
+    print("No se encontraron correcciones.")

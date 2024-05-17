@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../img/logoFondoRedondo.png">
+    <link rel="stylesheet" href="tesis.css">
+
+    <!-- ?  MATERIAL ICONS -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+    <title>Tesis</title>
+</head>
+
+<body>
+    <div class="container">
+        <aside>
+            <div class="top">
+                <div class="logo">
+                    <img src="../img/logoSinTexto.png" alt="">
+                    <h2>GLOB<span class="span-txtlogo">TEC</span><span class="span-x-">x-</span></h2>
+                </div>
+
+                <div class="close" id="close-btn">
+                    <span class="material-icons-sharp">close</span>
+                </div>
+            </div>
+
+            <!-- * Sidebar -->
+            <div class="sidebar">
+
+                <!-- ? Btn Incio -->
+                <a href="index.html">
+                    <span class="material-icons-sharp">home</span>
+                    <h3>Incio</h3>
+                </a>
+
+                <!-- ? Btn User -->
+                <a href="user.html">
+                    <span class="material-icons-sharp">account_circle</span>
+                    <h3>Yber-M</h3>
+                </a>
+
+                <!-- ? Btn Doc -->
+                <a href="#" class="active">
+                    <span class="material-icons-sharp">history_edu</span>
+                    <h3>Tesis</h3>
+                </a>
+
+                <!-- ? Btn Mensaje -->
+                <a href="#">
+                    <span class="material-icons-sharp">question_answer</span>
+                    <h3>Mensajes</h3>
+                    <span class="msg-count">8</span>
+                </a>
+
+                <!-- ? Btn Correciones -->
+                <a href="#">
+                    <span class="material-icons-sharp">inventory</span>
+                    <h3>Correciones</h3>
+                </a>
+
+                <!-- ? Herramientas -->
+                <a href="#">
+                    <span class="material-icons-sharp">tune</span>
+                    <h3>Herramientas</h3>
+                </a>
+
+                <!-- ? Cerrar Sesion -->
+                <a href="#">
+                    <span class="material-icons-sharp">logout</span>
+                    <h3>Cerrar Sesión</h3>
+                </a>
+            </div>
+        </aside>
+
+        <main>
+
+            <!-- * TITULO DE TESIS -->
+            <h1 class="titlo-tesis">Titulo de Tesis</h1>
+
+            <!-- ? TEXTO DEL TITULO DE LA TESIS -->
+
+            <!-- "TECx-: Desarrollo de un Sistema Inteligente de Apoyo para la
+                Elaboracion de Tesis" -->
+
+            <center>
+                <div id="tituloTesis" class="title-tesista">----</div>
+                <button id="botonEditar" class="emoji-button"><span style="cursor: pointer;"
+                        class="material-icons-sharp">
+                        drive_file_rename_outline
+                    </span></button>
+
+                <div class="title-tesista">
+                    <input id="inputTitulo" type="text" placeholder="Ingrese el título de la tesis"
+                        onkeydown="actualizarTitulo(event)">
+                </div>
+
+                <h1 id="tituloTesis"></h1>
+
+                <div id="inputContainer">
+                    <label for="archivoInput" id="inputLabel">
+                        <span class="icono">Subir archivo de tesis</span>
+                    </label>
+                    <input id="archivoInput" type="file" accept=".pdf" onchange="handleFileUpload(this.files)">
+                </div>
+
+                <div id="visualizadorPDF" style="display: none;">
+                    <embed id="pdfEmbed" src="" type="application/pdf" width="100%" height="500px">
+                </div>
+
+                <button id="btnConfirmar" style="display: none;" onclick="confirmarSubida()">Confirmar subida</button>
+                <button id="btnCambiar" style="display: none;" onclick="cambiarArchivo()">Cambiar archivo</button>
+            </center>
+
+        </main>
+
+        <!-- * TERCERA SECCION -->
+        <div class="right">
+            <div class="top">
+
+                <!-- ? Menu -->
+                <button id="menu-btn">
+                    <span class="material-icons-sharp">menu</span>
+                </button>
+
+                <!-- ? Tema Dark-Light  -->
+                <div class="modo-visualizador">
+                    <span class="material-icons-sharp active">light_mode</span>
+                    <span class="material-icons-sharp">dark_mode</span>
+                </div>
+
+                <!-- ? Texto Hola <user>-->
+                <div class="profile">
+                    <div class="info">
+                        <p>Hola!, <b>Yber-M</b> </p>
+                        <small class="text-muted">Admin</small>
+                    </div>
+                </div>
+
+                <!-- ? Foto de Usuario -->
+                <div class="perfil-foto" style="width: 32px;">
+                    <img src="img/perfil-foto.png" alt="user-img">
+                </div>
+            </div>
+            <!-- * NUEVAS ACTUALIZACIONES -->
+            <div class="recientes-update">
+                <h2>
+                    Statistics
+                </h2>
+
+                <!-- * Seccion de las estadisticas -->
+                <div class="estadisticas">
+
+                    <!-- ? Estado de tesis -->
+                    <div class="statustesis">
+                        <span class="material-icons-sharp">analytics</span>
+                        <div class="middle">
+                            <div class="left">
+                                <h3>Tésis Actual</h3>
+                                <!-- <h1>18</h1> -->
+                                <h1>En Proceso</h1>
+                            </div>
+                            <div class="progreso">
+                                <svg>
+                                    <circle cx='38' cy='38' r='36'></circle>
+                                </svg>
+
+                                <!-- <div class="number">
+                                    <p>45%</p>
+                                </div> -->
+                            </div>
+                        </div>
+                        <!-- <small class="text-muted">Actualizado hace 28d</small> -->
+                    </div>
+
+                    <!-- ? Plagio -->
+                    <div class="statusplagio">
+                        <span class="material-icons-sharp">warning</span>
+                        <div class="middle">
+                            <div class="left">
+                                <h3>Antiplagio</h3>
+                                <h1>Similitud</h1>
+                                <!-- <h1>Completado</h1> -->
+                            </div>
+                            <div class="progreso">
+                                <svg>
+                                    <circle cx='38' cy='38' r='36'></circle>
+                                </svg>
+
+                                <!-- <div class="number">
+                                    <p>44%</p>
+                                </div> -->
+                            </div>
+
+                            <!-- <a href="#">TECx-BOT
+                            <img src="./img/logoBot.jpg" style="width: 100px; border-radius: 50px; margin-top: 10px;">
+
+                            </a> -->
+
+                            <!-- * TECx-BOT -->
+                            <div class="container">
+                                <div class="chatbox">
+                                    <div class="chatbox__support">
+                                        <div class="chatbox__header">
+                                            <div class="chatbox__image--header">
+                                                <img src="img/logoBot.jpg" alt="image">
+                                            </div>
+                                            <div class="chatbox__content--header">
+                                                <h4 class="chatbox__heading--header">Tecx-BOT</h4>
+                                                <p class="chatbox__description--header">Hola! Mi nombre es Tecx. ¿En qué podría ayudarte?</p>
+                                            </div>
+                                        </div>
+                                        <div class="chatbox__messages">
+                                            <div></div>
+                                        </div>
+                                        <div class="chatbox__footer">
+                                            <input type="text" placeholder="Escribe un mensaje...">
+                                            <button class="chatbox__send--footer send__button">Enviar</button>
+                                        </div>
+                                    </div>
+                                    <div class="chatbox__button">
+                                        <img style="width: 100px; border-radius: 50px; margin-top: 10px;" src="img/logoBot.jpg" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+
+    <script src="tesis.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
